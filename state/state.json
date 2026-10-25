@@ -1,0 +1,13 @@
+{
+  "uploaded_video_ids": [],
+  "pending_public_video_ids": [],
+  "video_meta": {},
+  "used_topics": [],
+  "recent_styles": [],
+  "topic_performance": {},
+  "asset_log": [],
+  "run_history": [],
+  "consecutive_failures": 0,
+  "first_upload_done": false,
+  "public_approved": false
+}

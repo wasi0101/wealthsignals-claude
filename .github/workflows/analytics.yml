@@ -1,0 +1,50 @@
+name: Analytics Review
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # Monday 08:00 UTC, weekly
+  workflow_dispatch: {}
+
+concurrency:
+  group: wealthsignals-analytics
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: pip install -e .
+
+      - name: Run analytics pass
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python -m wealthsignals.cli analytics
+
+      - name: Commit updated state and LOG.md
+        if: always()
+        run: |
+          git config user.name "wealthsignals-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/ LOG.md
+          git diff --cached --quiet || git commit -m "chore: weekly analytics update"
+          git push

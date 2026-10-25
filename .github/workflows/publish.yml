@@ -1,0 +1,56 @@
+name: Publish Short
+
+on:
+  schedule:
+    # 15:00 UTC once a day. Add a second cron line here (different minute/hour)
+    # once you're comfortable with quality and want to go to 2/day — never add
+    # a third, per the plan.
+    - cron: "0 15 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: wealthsignals-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Confirm ffmpeg is available
+        run: ffmpeg -version
+
+      - name: Install project
+        run: pip install -e .
+
+      - name: Run pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python -m wealthsignals.cli run
+
+      - name: Commit updated state back to the repo
+        if: always()
+        run: |
+          git config user.name "wealthsignals-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/ LOG.md assets/fonts/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update state after publish run"
+          git push
