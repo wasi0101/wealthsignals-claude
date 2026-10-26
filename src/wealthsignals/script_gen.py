@@ -56,8 +56,11 @@ or "put your money in X now").
 personalized advice. This is general market commentary and education.
 - Do not reference real private individuals. Public companies, public market data, \
 and public economic events are fine.
-- Voiceover must be speakable in under 50 seconds at a natural pace (~130 wpm, so \
-roughly 90-105 words).
+- Voiceover must be speakable in 35-44 seconds at a natural pace (~130 wpm, so \
+roughly 75-95 words). This is a deliberate choice, not just "under 60": third-party \
+analysis of viral Shorts puts the retention sweet spot at 20-45 seconds, with \
+completion rate dropping noticeably as length pushes toward 60 — better to come in \
+under that ceiling with room to spare than hug it.
 - The on-screen caption text is the same as the voiceover, split into short beats.
 
 You will be told a hook_style and structure_style to use — the actual narrative \
