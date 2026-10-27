@@ -44,8 +44,8 @@ one is explained in context below.
 
 ```bash
 # Step 6 — first (throwaway) refresh token, app still in "Testing"
-git clone https://github.com/<your-username>/wealthsignals-shorts.git
-cd wealthsignals-shorts
+git clone https://github.com/wasi0101/wealthsignals-claude.git
+cd wealthsignals-claude
 pip install -e .
 python scripts/get_refresh_token.py ~/wealthsignals-client-secret.json
 
@@ -160,14 +160,11 @@ window for you to sign in. (Needs the repo cloned locally and Python
 installed — the commands are in the quick reference above.)
 
 ```bash
-git clone https://github.com/<your-username>/wealthsignals-shorts.git
-cd wealthsignals-shorts
+git clone https://github.com/wasi0101/wealthsignals-claude.git
+cd wealthsignals-claude
 pip install -e .
 python scripts/get_refresh_token.py ~/wealthsignals-client-secret.json
 ```
-
-(Use the actual repo URL once it exists — I'm still waiting on GitHub access
-to push it; I'll give you the real URL when that's done.)
 
 In the browser window that opens, sign in with the same Google account you
 added as a test user in step 3, with WealthSignals set as your active
