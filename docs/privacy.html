@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WealthSignals Pipeline — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    line-height: 1.6;
+    color: #171c26;
+    background: #f5f6f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #edf1f7; background: #0b1220; }
+    a { color: #34c98a; }
+    .card { background: #121a2b; border-color: #22304a; }
+  }
+  a { color: #1f8a5f; }
+  h1 { font-size: 26px; margin-bottom: 8px; }
+  .lede { color: #5b6472; font-size: 16px; margin-bottom: 28px; }
+  h2 { font-size: 19px; margin-top: 32px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  .card {
+    background: #fff; border: 1px solid #e2e6ec; border-radius: 10px;
+    padding: 14px 18px; margin: 12px 0; font-size: 14px;
+  }
+  .foot { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e6ec; font-size: 13px; color: #5b6472; }
+</style>
+</head>
+<body>
+  <p><a href="index.html">&larr; WealthSignals Pipeline</a></p>
+  <h1>Privacy Policy</h1>
+  <p class="lede">This policy covers the WealthSignals Pipeline application and the Google user data it accesses through the YouTube Data API and the YouTube Analytics API.</p>
+
+  <h2>Who operates this</h2>
+  <p>WealthSignals Pipeline is built and run by one individual as a personal content project. It is authorized against exactly one Google Account, the owner of the WealthSignals YouTube channel, and is not distributed to or used by anyone else. There is no public sign-up, no account creation, and no other users.</p>
+
+  <h2>What data it accesses</h2>
+  <p>When the authorized Google Account grants access, the application can:</p>
+  <ul>
+    <li>Upload videos to the WealthSignals YouTube channel, and set each video's title, description, tags, and privacy status, via the YouTube Data API.</li>
+    <li>Read performance data for the WealthSignals channel, including views, watch time, and audience retention, via the YouTube Analytics API.</li>
+  </ul>
+  <p>It does not request access to Gmail, Drive, Contacts, Calendar, or any other Google service, and it does not access any YouTube channel other than WealthSignals.</p>
+
+  <h2>How the data is used</h2>
+  <p>Channel and analytics data is used solely to operate the WealthSignals channel: publishing new videos on a schedule, and using past performance data to decide what topics to cover next. This data is never used for advertising, never sold, never shared with data brokers, and never shared with any third party except where strictly necessary to provide the service described above.</p>
+  <p>Video scripts are drafted with the help of a third-party AI text-generation API. That service receives only the topic and script text being written. It never receives Google Account data, credentials, or analytics figures.</p>
+  <p>This application's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>How access is stored and protected</h2>
+  <div class="card">
+    The OAuth refresh token that grants this access is stored as an encrypted secret in GitHub Actions. It is never written into source code, never committed to a repository, and never exposed in logs or build output.
+  </div>
+
+  <h2>Data retention</h2>
+  <p>The application retains only what it needs to operate: the OAuth token itself, and a small internal log of which video topics have already been covered, to avoid duplicate uploads. No personal data about viewers of the channel is collected or stored.</p>
+
+  <h2>Revoking access</h2>
+  <p>The account owner can disconnect this application at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Once revoked, the application can no longer upload videos or read analytics for the channel, and any cached token becomes invalid.</p>
+
+  <h2>Children's privacy</h2>
+  <p>This application is an internal publishing tool operated by an adult channel owner. It does not knowingly collect data from children, and it does not interact with viewers or the general public in any way.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>This policy may be updated as the pipeline changes. The date below reflects the current scopes and data use described here.</p>
+  <div class="card">
+    <strong>Last updated:</strong> October 2026
+  </div>
+
+  <div class="foot">
+    WealthSignals Pipeline — personal, single-account use only.
+  </div>
+</body>
+</html>

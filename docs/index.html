@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WealthSignals Pipeline</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    line-height: 1.6;
+    color: #171c26;
+    background: #f5f6f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #edf1f7; background: #0b1220; }
+    a { color: #34c98a; }
+    .card { background: #121a2b; border-color: #22304a; }
+  }
+  a { color: #1f8a5f; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .lede { color: #5b6472; font-size: 17px; margin-bottom: 32px; }
+  h2 { font-size: 20px; margin-top: 36px; }
+  .card {
+    background: #fff; border: 1px solid #e2e6ec; border-radius: 10px;
+    padding: 16px 18px; margin: 12px 0;
+  }
+  .scope { font-weight: 600; font-family: ui-monospace, monospace; font-size: 13px; }
+  .foot { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e6ec; font-size: 13px; color: #5b6472; }
+</style>
+</head>
+<body>
+  <p><strong>WealthSignals Pipeline</strong></p>
+  <h1>A single-channel content pipeline, not a public product</h1>
+  <p class="lede">WealthSignals Pipeline writes, narrates, and publishes short educational finance and economics videos to one YouTube channel, WealthSignals. It has one operator and one authorized Google Account. It is not a service other people sign up for.</p>
+
+  <h2>What it does</h2>
+  <p>Each run picks a topic, writes a short script, generates a spoken narration, pairs it with licensed stock footage, and publishes the finished video to the WealthSignals YouTube channel on a schedule. A human reviews the first upload before anything goes public.</p>
+
+  <h2>Why it asks for YouTube access</h2>
+  <p>The pipeline needs two things from the authorized Google Account to work:</p>
+  <div class="card">
+    <p><span class="scope">youtube.upload</span><br>Upload and manage videos on the WealthSignals channel.</p>
+  </div>
+  <div class="card">
+    <p><span class="scope">yt-analytics.readonly</span><br>Read that channel's own view and retention data, to adjust future topics.</p>
+  </div>
+  <p>Full detail on how that access is used and protected is in the <a href="privacy.html">privacy policy</a>.</p>
+
+  <div class="foot">
+    Operated as a personal project. Access can be revoked anytime at
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+  </div>
+</body>
+</html>
